@@ -29,4 +29,8 @@ export default class CarODM {
   public async findById(id: string): Promise<ICar | null> {
     return this.model.findOne({ _id: id });
   }
+
+  public async update(id: string, car: ICar): Promise<ICar | null> {
+    return this.model.findByIdAndUpdate({ _id: id }, { ...car }, { new: true });
+  }
 }

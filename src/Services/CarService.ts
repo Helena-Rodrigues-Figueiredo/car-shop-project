@@ -28,4 +28,10 @@ export default class CarService {
     const findCar = await carODM.findById(id);
     return this.createCarDomain(findCar);
   }
+
+  public async update(id: string, car: ICar) {
+    const carODM = new CarODM();
+    const updateCar = await carODM.update(id, car);
+    return this.createCarDomain(updateCar);
+  }
 }
