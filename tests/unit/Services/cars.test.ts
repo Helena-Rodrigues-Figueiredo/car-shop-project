@@ -4,7 +4,9 @@ import { Model } from 'mongoose';
 import { carInput, carOutput, carUpdated, updateCar } from './mocks/mockCar';
 import CarService from '../../../src/Services/CarService';
 
-describe('Rotas de carro', function () {
+describe('Verifica rotas de carros', function () {
+  afterEach(function () { sinon.restore(); });
+
   it('Carro é cadastrado com SUCESSO na rota POST /cars', async function () {
     sinon.stub(Model, 'create').resolves(carOutput);
 
