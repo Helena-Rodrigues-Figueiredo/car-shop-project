@@ -29,9 +29,9 @@ export default class MotorcycleService {
     return this.createMotorcycleDomain(findMotorcycle);
   }
 
-  // public async update(id: string, car: ICar) {
-  //   const carODM = new CarODM();
-  //   const updateCar = await carODM.update(id, car);
-  //   return this.createCarDomain(updateCar);
-  // }
+  public async update(id: string, motorcycle: IMotorcycle) {
+    const motorcyclesODM = new MotorcycleODM();
+    const updateMotorcycles = await motorcyclesODM.update(id, motorcycle);
+    return this.createMotorcycleDomain(updateMotorcycles);
+  }
 }
