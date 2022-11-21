@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-// import { isValidObjectId } from 'mongoose';
+import { isValidObjectId } from 'mongoose';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleService from '../Services/MotorcycleService';
 
@@ -35,33 +35,33 @@ export default class MotorcycleController {
     }
   }
 
-  //   public async findAll() {
-  //     try {
-  //       const findCars = await this.service.findAll();
-  //       return this.res.status(200).json(findCars);
-  //     } catch (error) {
-  //       this.next(error);
-  //     }
-  //   }
+  public async findAll() {
+    try {
+      const findMotorcycles = await this.service.findAll();
+      return this.res.status(200).json(findMotorcycles);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 
-  //   public async findById() {
-  //     const { id } = this.req.params;
-  //     try {
-  //       if (!isValidObjectId(id)) {
-  //         return this.res.status(422).json({ message: 'Invalid mongo id' });
-  //       }
+  public async findById() {
+    const { id } = this.req.params;
+    try {
+      if (!isValidObjectId(id)) {
+        return this.res.status(422).json({ message: 'Invalid mongo id' });
+      }
 
-  //       const findCar = await this.service.findById(id);
+      const findMotorcycle = await this.service.findById(id);
 
-  //       if (!findCar) {
-  //         return this.res.status(404).json({ message: 'Car not found' });
-  //       }
+      if (!findMotorcycle) {
+        return this.res.status(404).json({ message: 'Motorcycle not found' });
+      }
 
-  //       return this.res.status(200).json(findCar);
-  //     } catch (error) {
-  //       this.next(error);
-  //     }
-  //   }
+      return this.res.status(200).json(findMotorcycle);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 
   //   public async update() {
   //     const { id } = this.req.params;
@@ -77,9 +77,9 @@ export default class MotorcycleController {
   //         return this.res.status(404).json({ message: 'Car not found' });
   //       }
 
-//       return this.res.status(200).json(updateCar);
-//     } catch (error) {
-//       this.next(error);
-//     }
-//   }
+  //     return this.res.status(200).json(updateCar);
+  //   } catch (error) {
+  //     this.next(error);
+  //   }
+  // }
 }
