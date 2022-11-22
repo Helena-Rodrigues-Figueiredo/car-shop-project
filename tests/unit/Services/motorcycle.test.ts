@@ -2,7 +2,8 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
 import { motorcycleInput, motorcycleOutput, updateMotorcycle,
-  motorcycleUpdated } from './mocks/mockMotorcycle';
+  motorcycleUpdated, 
+  deletedMotorcycle } from './mocks/mockMotorcycle';
 import MotorcycleService from '../../../src/Services/MotorcycleService';
 
 describe('Verifica rotas de motocicletas', function () {
@@ -40,4 +41,15 @@ describe('Verifica rotas de motocicletas', function () {
 
     expect(result).to.be.deep.equal(motorcycleUpdated);
   });
+
+  it(
+    'Verifica se é possível deletar a motocicleta pelo ID na rota DELETE /cars/:id',
+    async function () {
+      sinon.stub(Model, 'findByIdAndDelete').resolves(deletedMotorcycle);
+
+      const result = await service.delete('6348513f34c397abcad040b2');
+
+      expect(result).to.be.deep.equal(undefined);
+    },
+  );
 });

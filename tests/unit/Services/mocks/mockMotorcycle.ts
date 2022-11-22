@@ -41,3 +41,14 @@ export const motorcycleUpdated: IMotorcycle = {
   category: 'Street',
   engineCapacity: 500,
 };
+
+export const deletedMotorcycle: IMotorcycle = {
+  id: '6348513f34c397abcad040b2',
+  model: 'CG 160 Titan',
+  year: 2015,
+  color: 'White',
+  status: true,
+  buyValue: 10.000,
+  category: 'Street',
+  engineCapacity: 500,
+};

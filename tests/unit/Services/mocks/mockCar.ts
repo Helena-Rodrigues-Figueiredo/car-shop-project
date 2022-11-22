@@ -41,3 +41,14 @@ export const carUpdated: ICar = {
   doorsQty: 4,
   seatsQty: 5,
 };
+
+export const deletedCar: ICar = {
+  id: '6348513f34c397abcad040b2',
+  model: 'Civc',
+  year: 2010,
+  color: 'Red',
+  status: true,
+  buyValue: 20.000,
+  doorsQty: 4,
+  seatsQty: 5,
+};
