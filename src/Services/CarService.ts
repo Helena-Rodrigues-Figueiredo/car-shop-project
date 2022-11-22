@@ -4,6 +4,9 @@ import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 import HttpException from '../Middlewares/HttpException';
 
+const invalidMongoId = 'Invalid mongo id';
+const carNotFound = 'Car not found';
+
 export default class CarService {
   private createCarDomain(car: ICar | null): Car | null {
     if (car) {
@@ -29,13 +32,13 @@ export default class CarService {
     const carODM = new CarODM();
 
     if (!isValidObjectId(id)) {        
-      throw new HttpException(422, 'Invalid mongo id');
+      throw new HttpException(422, invalidMongoId);
     }
 
     const findCar = await carODM.findById(id);
 
     if (!findCar) {
-      throw new HttpException(404, 'Car not found');
+      throw new HttpException(404, carNotFound);
     }
 
     return this.createCarDomain(findCar);
@@ -45,14 +48,28 @@ export default class CarService {
     const carODM = new CarODM();
 
     if (!isValidObjectId(id)) {        
-      throw new HttpException(422, 'Invalid mongo id');
+      throw new HttpException(422, invalidMongoId);
     }
 
     const updateCar = await carODM.update(id, car);
 
     if (!updateCar) {
-      throw new HttpException(404, 'Car not found');
+      throw new HttpException(404, carNotFound);
     }
     return this.createCarDomain(updateCar);
+  }
+
+  public async delete(id: string) {
+    const carODM = new CarODM();
+
+    if (!isValidObjectId(id)) {        
+      throw new HttpException(422, invalidMongoId);
+    }
+
+    const deleteCar = await carODM.delete(id);
+
+    if (!deleteCar) {
+      throw new HttpException(404, carNotFound);
+    }
   }
 }
