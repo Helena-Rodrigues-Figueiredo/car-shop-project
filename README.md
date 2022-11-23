@@ -1,13 +1,51 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Projeto Car Shop
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Neste projeto foi utilizado os princípios de Programação Orientada a Objetos (POO) para a construção de um API com CRUD para gerenciar uma concessionária de veículos. A aplicação possibilita ler, criar, atualizar e excluir carros e motos de um banco de dados MongoDB através do framework do Mongoose. Além disso, foram desenvolvidos testes unitários para testar a camada Service.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Habilidades utilizadas
+
+- Node.js
+- Express
+- Typescript
+- MongoDB
+- Mongoose
+- POO
+- Mocha
+- Chai
+- Sinon
+
+## Para rodar o projeto pela sua máquina com o Docker:
+
+1. Clone o repositório:
+
+`git clone git@github.com:Helena-Rodrigues-Figueiredo/project-car-shop.git`
+
+2. Entre na pasta do projeto:
+
+`cd project-car-shop`
+
+3. Suba os containers com o Docker-Compose:
+
+`docker-compose up -d`
+
+4. Conecte ao terminal do container car_shop:
+
+`docker exec -it car_shop bash`
+
+5. Instale as dependências:
+
+`npm install`
+
+6. Inicie a aplicação:
+
+`npm run dev`
+
+7. Para rodar os testes unitários:
+
+`npm run test:mocha`
+
+⚠️ As seguintes portas serão utilizadas:
+Node: 3001
+MongoDB: 27017
+
+
