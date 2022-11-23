@@ -45,7 +45,7 @@ Neste projeto foi utilizado os princípios de Programação Orientada a Objetos 
 `npm run test:mocha`
 
 ⚠️ As seguintes portas serão utilizadas:
-Node: 3001
-MongoDB: 27017
+- Node: 3001
+- MongoDB: 27017
 
 
